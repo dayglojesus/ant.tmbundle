@@ -1,5 +1,4 @@
-#!/usr/bin/python
-
+#!/usr/bin/env python3
 import sys, os.path, re, os, atexit, signal
 
 matcher = re.compile(r'(/.*?)(\(([0-9]+)\)|):.*(Error|Warning):\s*(.*)$')
@@ -29,13 +28,13 @@ while line:
 		f = match.group(1)
 		l = match.group(3)
 		e = match.group(5)
-		print '<br><div id="err"><code>File: %s<br />Line: %s<br />Error: <a title="Click to show error and close output" href="txmt://open?url=file://%s&line=%s" onclick="self.close();">%s</a></code></div>' % (f, l, f, l, e )
+		print('<br><div id="err"><code>File: %s<br />Line: %s<br />Error: <a title="Click to show error and close output" href="txmt://open?url=file://%s&line=%s" onclick="self.close();">%s</a></code></div>' % (f, l, f, l, e ))
 	elif (line[0:1] != " "):
-		print '<code>%s</code><br />' % line
+		print('<code>%s</code><br />' % line)
 	#end_if
 	sys.stdout.flush()
 	line = sys.stdin.readline()
 #end_while
 
-print '<br><div id="end"><code>Build complete, %s error(s) occured.</code></div>' % errs
+print('<br><div id="end"><code>Build complete, %s error(s) occured.</code></div>' % errs)
 	
