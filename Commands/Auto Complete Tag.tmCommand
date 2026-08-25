@@ -14,6 +14,7 @@ require "rexml/document"
 require SUPPORT + '/lib/escape'
 require SUPPORT + '/lib/exit_codes'
 require SUPPORT + '/lib/osx/plist'
+require SUPPORT + '/private/plist' # Hash#to_plist
 
 word = STDIN.read.strip
 TextMate.exit_show_tool_tip("Please select a term to complete.") if word.empty?
